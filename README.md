@@ -21,7 +21,7 @@ samples, guidance on mobile development, and a full API reference.
 
 这是一个flutter练习项目,数据传递使用Redux / EventBus , 网络请求为Dio
 <Br>
-后台使用Go+MySql,框架使用了Gin+Gorm
+后台使用Go+MySql,框架使用了Gin+Gorm [地址](https://github.com/harry491/scrips)
 
 <Html>
 <figure class="third">
