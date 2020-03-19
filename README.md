@@ -24,7 +24,7 @@ samples, guidance on mobile development, and a full API reference.
 <Br>
 后台使用Go+MySql,框架使用了Gin+Gorm
 
-![avatar](./images/Simulator%20Screen%20Shot%20-%20iPhone%2011-3.png)
-![avatar](./images/Simulator%20Screen%20Shot%20-%20iPhone%2011%20-2.png)
-![avatar](./images/Simulator%20Screen%20Shot%20-%20iPhone%2011%20-%201.png)
+![avatar](./images/Simulator%20Screen%20Shot%20-%20iPhone%2011-3.png){:height="896" width="414"}
+![avatar](./images/Simulator%20Screen%20Shot%20-%20iPhone%2011%20-2.png){:height="896" width="414"}
+![avatar](./images/Simulator%20Screen%20Shot%20-%20iPhone%2011%20-%201.png){:height="896" width="414"}
 
