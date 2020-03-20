@@ -3,11 +3,13 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_luban/flutter_luban.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:my_app/event/event_bus.dart';
 import 'package:my_app/event/event_model.dart';
 import 'package:my_app/http/dartHttp.dart';
+import 'package:path_provider/path_provider.dart';
 
 class WriteBlog extends StatefulWidget {
   @override
@@ -28,6 +30,62 @@ class WriteBlogState extends State<WriteBlog> {
   void initState() {
     // TODO: implement initState
     super.initState();
+  }
+
+  Future<void> showMutiDialog() async {
+    int i = await showDialog<int>(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                ListTile(
+                  title: Text("请选择"),
+                ),
+                Flexible(
+                  child: ListView.builder(
+                    itemExtent: 60,
+                    shrinkWrap: true,
+                    itemCount: 2,
+                    itemBuilder: (BuildContext context, int index) {
+                      return ListTile(
+                        title: Text(index == 0 ? "相机" : "相册"),
+                        onTap: () => Navigator.of(context).pop(index),
+                      );
+                    },
+                  ),
+                )
+              ],
+            ),
+          );
+        });
+
+    if (i != null) {
+      File image;
+      if (i == 0) {
+        image = await ImagePicker.pickImage(source: ImageSource.camera);
+      } else {
+        image = await ImagePicker.pickImage(source: ImageSource.gallery);
+      }
+
+      if (image == null) return;
+      final tempDir = await getTemporaryDirectory();
+
+      CompressObject compressObject = CompressObject(
+        imageFile: image, //image
+        path: tempDir.path, //compress to path
+        quality: 85, //first compress quality, default 80
+        step:
+        9, //compress quality step, The bigger the fast, Smaller is more accurate, default 6
+//      mode: CompressMode.LARGE2SMALL,//default AUTO
+      );
+      Luban.compressImage(compressObject).then((_path) {
+        setState(() {
+          images.add(image);
+        });
+      });
+    }
   }
 
   @override
@@ -117,14 +175,7 @@ class WriteBlogState extends State<WriteBlog> {
                             size: 50,
                           ),
                           onPressed: () async {
-                            var image = await ImagePicker.pickImage(
-                                source: ImageSource.gallery);
-
-                            if (image != null) {
-                              setState(() {
-                                images.add(image);
-                              });
-                            }
+                            showMutiDialog();
                           },
                         ),
                       ]
