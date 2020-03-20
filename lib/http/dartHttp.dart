@@ -35,8 +35,9 @@ class Movies {
 }
 
 class HttpUtils {
-  static String baseUrl = "http://localhost/";
-  static String baseImageUrl = "http://localhost/";
+  static String baseUrl = "http://39.101.193.32/";
+  static String baseImageUrl = "http://39.101.193.32/static/images/";
+  static String baseHtmlUrl = "http://39.101.193.32/static/htmls/";
   static Dio _dio = initDio();
 
   static Dio initDio() {

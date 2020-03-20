@@ -90,8 +90,8 @@ class MyBlogState extends State<MyBlog> {
                           title: "关于",
                           callback: () {
                             NavigatorUtils.goWebPage(context, {
-                              "url": HttpUtils.baseImageUrl +
-                                  "src/static/html/about_us.html"
+                              "url": HttpUtils.baseHtmlUrl +
+                                  "about_us.html"
                             });
                           },
                         ),
