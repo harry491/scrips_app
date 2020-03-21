@@ -4,6 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:my_app/components/discover_tag.dart';
 import 'package:my_app/http/dartHttp.dart';
 import 'package:my_app/model/movie_entity.dart';
+import 'package:my_app/router/NavigatorUtils.dart';
 import 'package:my_app/theme/materialColor.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
@@ -135,7 +136,11 @@ class RecommandState extends State<Recommand> {
                     ),
                   ),
                   ...datas.map((movie) {
-                    return DiscoverTag(movie.head, movie.title, movie.other, () {});
+                    return DiscoverTag(movie.head, movie.title, movie.other, () {
+                      NavigatorUtils.goWebPage(context, {
+                        "url": movie.href
+                      });
+                    });
                   }).toList(),
                   Container(
                     padding: EdgeInsets.only(left: 15),

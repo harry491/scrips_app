@@ -23,6 +23,9 @@ String api_writeComments = "v1/addComment";
 /// 推荐电影
 String api_allMovies = "v1/allMovies";
 
+/// 最新电影
+String api_newMovies = "v1/newMovies";
+
 
 
 

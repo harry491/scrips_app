@@ -114,10 +114,17 @@ class HttpUtils {
     return response;
   }
 
-  /// 获取影视
+  /// 获取推荐影视
   static Future<MovieEntity> getMoviesData(BuildContext context,
       {Map<String, dynamic> params = const {}}) async {
     var response = await _get(context, baseUrl + api_allMovies, params: params);
+    return MovieEntity().fromJson(response.data);
+  }
+
+  /// 获取最新影视
+  static Future<MovieEntity> getNewMovies(BuildContext context,
+      {Map<String, dynamic> params = const {}}) async {
+    var response = await _get(context, baseUrl + api_newMovies, params: params);
     return MovieEntity().fromJson(response.data);
   }
 
