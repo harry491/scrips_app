@@ -30,6 +30,8 @@ class BlogState extends State<Blog> with AutomaticKeepAliveClientMixin {
 
   var loadFailed = false;
 
+  var msg = "";
+
   void _onRefresh() async {
     _getScrips();
   }
@@ -59,10 +61,11 @@ class BlogState extends State<Blog> with AutomaticKeepAliveClientMixin {
 
     var result =
         await HttpUtils.scrips(context, params: {"page": page.toString()});
-    if (result == null && page == 0) {
+    if ((result.code == null || result.code != '200') && page == 0) {
       Fluttertoast.showToast(msg: "加载失败");
       setState(() {
         loadFailed = true;
+        msg = result.msg;
       });
 
       if (_refreshController.isRefresh) {
@@ -145,7 +148,10 @@ class BlogState extends State<Blog> with AutomaticKeepAliveClientMixin {
         ),
         child: loadFailed
             ? Center(
-                child: Text("加载失败"),
+                child: Text(
+                  "加载失败\n" + msg,
+                  textAlign: TextAlign.center,
+                ),
               )
             : ListView.builder(
                 itemCount: pageList.length,
@@ -181,7 +187,6 @@ class BlogItem extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    print(scrip.content);
     return new BlogItemState();
   }
 }

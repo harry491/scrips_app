@@ -31,7 +31,7 @@ class SearchState extends State<Search> {
 
     var movies = await HttpUtils.getMoviesData(context);
 
-    items.addAll(movies.movieList);
+    items.addAll([]);
 
     setState(() {
 

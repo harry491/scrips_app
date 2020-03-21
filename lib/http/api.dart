@@ -20,4 +20,9 @@ String api_comments = "v1/allComments";
 /// 写评论
 String api_writeComments = "v1/addComment";
 
+/// 推荐电影
+String api_allMovies = "v1/allMovies";
+
+
+
 

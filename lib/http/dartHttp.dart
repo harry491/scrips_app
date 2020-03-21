@@ -6,6 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:my_app/http/api.dart';
 import 'package:my_app/http/myDialog.dart';
 import 'package:my_app/model/comments_entity.dart';
+import 'package:my_app/model/movie_entity.dart';
 import 'package:my_app/model/scrip_model_entity.dart';
 import 'package:my_app/model/user.dart';
 import 'package:my_app/model/user_model_entity.dart';
@@ -114,10 +115,10 @@ class HttpUtils {
   }
 
   /// 获取影视
-  static Future<Movies> getMoviesData(BuildContext context,
-      {Map<String, dynamic> params = const {'offset': 0, 'limit': 10}}) async {
-    var response = await _get(context, baseUrl + 'movies', params: params);
-    return Movies(response.data["data"]);
+  static Future<MovieEntity> getMoviesData(BuildContext context,
+      {Map<String, dynamic> params = const {}}) async {
+    var response = await _get(context, baseUrl + api_allMovies, params: params);
+    return MovieEntity().fromJson(response.data);
   }
 
   /// 获取验证码

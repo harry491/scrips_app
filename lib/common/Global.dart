@@ -9,17 +9,24 @@ const _themes = <MaterialColor>[
   Colors.red,
 ];
 
+class Global {
+  // 屏幕宽度
+  static double screenWidth;
+  /// 屏幕高度
+  static double screenHeight;
+  /// 状态栏高度
+  static double statusBarHeight;
+  /// 底部高度
+  static double safeButtomHeight;
 
-class Global{
 
   // 可取按的主题列表
   static SharedPreferences _prefs;
 
   String theme = 'red';
-
 }
 
-class GlobalModel extends Global with ChangeNotifier{
+class GlobalModel extends Global with ChangeNotifier {
   Future $setTheme(playload) async {
     theme = playload;
     notifyListeners();

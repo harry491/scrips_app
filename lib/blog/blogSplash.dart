@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_app/common/Global.dart';
 import 'package:my_app/model/user.dart';
 import 'package:my_app/redux/appState.dart';
 import 'package:my_app/redux/userRedux.dart';
@@ -59,6 +61,13 @@ class BlogSplashState extends State<BlogSplash> {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.instance = ScreenUtil(width: 375, height: 667)..init(context);
+    final size = MediaQuery.of(context).size;
+    Global.screenWidth = size.width;
+    Global.screenHeight = size.height;
+    Global.statusBarHeight = MediaQuery.of(context).padding.top;
+    Global.safeButtomHeight = MediaQuery.of(context).padding.bottom;
+
     // TODO: implement build
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.light,
@@ -114,7 +123,7 @@ class BlogSplashState extends State<BlogSplash> {
   void dispose() {
     // TODO: implement dispose
     super.dispose();
-    if (countdownTimer != null){
+    if (countdownTimer != null) {
       countdownTimer.cancel();
       countdownTimer = null;
     }

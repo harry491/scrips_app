@@ -6,6 +6,7 @@ import 'package:my_app/blog/blog.dart';
 import 'package:my_app/blog/myBlog.dart';
 import 'package:my_app/components/home.dart';
 import 'package:my_app/components/save.dart';
+import 'package:my_app/discover/discover.dart';
 import 'package:my_app/event/event_bus.dart';
 import 'package:my_app/redux/appState.dart';
 
@@ -21,9 +22,16 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _page = 0;
 
-  var _pageList = [new Blog(), new Home(), new MyBlog()];
+  var _pageList = [new Blog(), new Discover(), new Home(), new MyBlog()];
 
-  var _titleList = ["归档", "工作", "我的"];
+  var _titleList = ["纸条", "发现", "临时", "我的"];
+
+  var _iconList = [
+    Icons.event_note,
+    Icons.location_searching,
+    Icons.folder_open,
+    Icons.person
+  ];
 
   @override
   void initState() {
@@ -40,32 +48,15 @@ class _HomePageState extends State<HomePage> {
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: _page,
             type: BottomNavigationBarType.fixed,
-            items: [
-              BottomNavigationBarItem(
+            items: _titleList.asMap().keys.map((index) {
+              return BottomNavigationBarItem(
                   icon: Icon(
-                    Icons.event_note,
+                    _iconList[index],
                   ),
                   title: Text(
-                    "纸条",
-//                    style: TextStyle(color: Colors.green),
-                  )),
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.folder_open,
-                  ),
-                  title: Text(
-                    "临时",
-//                    style: TextStyle(color: Colors.green),
-                  )),
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.person,
-                  ),
-                  title: Text(
-                    "我的",
-//                    style: TextStyle(color: Colors.green),
-                  )),
-            ],
+                    _titleList[index],
+                  ));
+            }).toList(),
             onTap: (index) {
               this.setState(() {
                 _page = index;
