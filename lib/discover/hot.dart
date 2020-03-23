@@ -4,6 +4,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:my_app/http/dartHttp.dart';
 import 'package:my_app/model/movie_entity.dart';
+import 'package:my_app/router/NavigatorUtils.dart';
 import 'package:my_app/theme/materialColor.dart';
 
 class Hot extends StatefulWidget {
@@ -58,7 +59,12 @@ class HotState extends State<Hot> {
   }
 
   Widget _buildChildWidget(MovieMovie movie) {
-    return Container(
+    return GestureDetector(
+      onTap: (){
+        NavigatorUtils.goWebPage(context, {
+          "url": movie.href
+        });
+      },
       child: Column(
         children: <Widget>[
           new Stack(
@@ -67,14 +73,14 @@ class HotState extends State<Hot> {
               new ClipRRect(
                 borderRadius: BorderRadius.circular(2),
                 child: new FadeInImage.assetNetwork(
-                  placeholder: "",
+                  placeholder: "images/place.png",
                   image: movie.head,
                 ),
               ),
             ],
           ),
           Padding(
-            padding: EdgeInsets.all(5),
+            padding: EdgeInsets.only(top: 5 , bottom: 10 , left: 10 , right: 10),
             child: Column(
               children: <Widget>[
                 Text(movie.title , style: bigFontStyle,),

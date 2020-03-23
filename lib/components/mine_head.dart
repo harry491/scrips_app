@@ -27,7 +27,7 @@ class MineHead extends StatelessWidget {
         children: <Widget>[
           Container(
             margin: EdgeInsets.only(bottom: 30),
-            padding: EdgeInsets.only(top: top + 40, bottom: 60, left: 15, right: 15),
+            padding: EdgeInsets.only(top: top + 20, bottom: 60, left: 15, right: 15),
             color: data.primaryColor,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
