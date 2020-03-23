@@ -87,7 +87,6 @@ class LatestState extends State<Latest> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    print("RecommandState");
     return Container(
       color: Color.fromARGB(255, 244, 244, 244),
       child: SmartRefresher(
