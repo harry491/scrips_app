@@ -5,7 +5,7 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:my_app/redux/appState.dart';
 import 'package:my_app/router/application.dart';
 import 'package:my_app/router/router.dart';
-import 'blog/blogSplash.dart';
+import 'app//blog/blogSplash.dart';
 import 'event/event_bus.dart';
 import 'package:redux/redux.dart';
 
@@ -56,28 +56,26 @@ class MyAppState extends State<MyApp> {
         defaultColor = event.color;
       });
     });
-
   }
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return StoreProvider(
-      store: store,
-      child: StoreBuilder<AppState>(builder:(context , store){
-        return MaterialApp(
-          theme: store.state.themeData,
+        store: store,
+        child: StoreBuilder<AppState>(builder: (context, store) {
+          return MaterialApp(
+            theme: store.state.themeData,
 //        ThemeData(primaryColor: defaultColor),
 //        store.state.themeData,
-          title: 'Flutter Demo',
-          home: BlogSplash(
-            images: [
-              "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2327995546,2815924863&fm=26&gp=0.jpg",
-            ],
-          ),
+            title: 'Flutter Demo',
+            home: BlogSplash(
+              images: [
+                "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2327995546,2815924863&fm=26&gp=0.jpg",
+              ],
+            ),
 //        MyHomePage(title: 'Flutter'),
-        );
-      })
-    );
+          );
+        }));
   }
 }

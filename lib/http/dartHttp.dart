@@ -64,6 +64,8 @@ class HttpUtils {
     /// 接收数据的最长时限，单位是毫秒
     options.receiveTimeout = 40 * 1000;
 
+    options.validateStatus = (_) => true;
+
     /// 请求路径，如果 `path` 以 "http(s)"开始, 则 `baseURL` 会被忽略； 否则,
     /// 将会和baseUrl拼接出完整的的url.
     //String path = "";

@@ -2,22 +2,22 @@ import 'dart:convert';
 
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'package:my_app/blog/blog.dart';
-import 'package:my_app/blog/blogDetail.dart';
-import 'package:my_app/blog/blogMain.dart';
-import 'package:my_app/blog/blogWeb.dart';
-import 'package:my_app/blog/editHead.dart';
-import 'package:my_app/blog/editName.dart';
-import 'package:my_app/blog/favourite.dart';
-import 'package:my_app/blog/personInfo.dart';
-import 'package:my_app/blog/themePage.dart';
-import 'package:my_app/blog/writeBlog.dart';
-import 'package:my_app/blog/forgetPassword.dart';
-import 'package:my_app/blog/login.dart';
-import 'package:my_app/components/mine.dart';
-import 'package:my_app/blog/register.dart';
-import 'package:my_app/blog/settings.dart';
-import 'package:my_app/home/homePage.dart';
+import 'package:my_app/app/animate/lineAnimate.dart';
+import 'package:my_app/app/blog/blog.dart';
+import 'package:my_app/app/blog/blogDetail.dart';
+import 'package:my_app/app/blog/blogWeb.dart';
+import 'package:my_app/app/blog/editHead.dart';
+import 'package:my_app/app/blog/editName.dart';
+import 'package:my_app/app/blog/favourite.dart';
+import 'package:my_app/app/blog/personInfo.dart';
+import 'package:my_app/app/blog/themePage.dart';
+import 'package:my_app/app/blog/writeBlog.dart';
+import 'package:my_app/app/blog/forgetPassword.dart';
+import 'package:my_app/app/blog/login.dart';
+import 'package:my_app/app/components/mine.dart';
+import 'package:my_app/app/blog/register.dart';
+import 'package:my_app/app/blog/settings.dart';
+import 'package:my_app/app/home/homePage.dart';
 import 'package:my_app/router/fluro_convert_utils.dart';
 
 /// 主页
@@ -123,3 +123,9 @@ var setPage = new Handler(
       return Setting();
     });
 
+
+/// 线性动画
+var lineAnimatePage = new Handler(
+    handlerFunc: (BuildContext context, Map<String, List<Object>> params) {
+      return LineAnimate();
+    });

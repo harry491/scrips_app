@@ -1,17 +1,17 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:my_app/blog/blogDetail.dart';
-import 'package:my_app/blog/blogMain.dart';
-import 'package:my_app/blog/card.dart';
-import 'package:my_app/blog/favourite.dart';
-import 'package:my_app/blog/writeBlog.dart';
-import 'package:my_app/blog/forgetPassword.dart';
-import 'package:my_app/blog/login.dart';
-import 'package:my_app/components/mine.dart';
-import 'package:my_app/components/personInfo.dart';
-import 'package:my_app/blog/register.dart';
-import 'package:my_app/blog/settings.dart';
-import 'package:my_app/components/themeset.dart';
+import 'package:my_app/app/blog/blogDetail.dart';
+import 'package:my_app/app/blog/blogMain.dart';
+import 'package:my_app/app/blog/card.dart';
+import 'package:my_app/app/blog/favourite.dart';
+import 'package:my_app/app/blog/writeBlog.dart';
+import 'package:my_app/app/blog/forgetPassword.dart';
+import 'package:my_app/app/blog/login.dart';
+import 'package:my_app/app/components/mine.dart';
+import 'package:my_app/app/components/personInfo.dart';
+import 'package:my_app/app/blog/register.dart';
+import 'package:my_app/app/blog/settings.dart';
+import 'package:my_app/app/components/themeset.dart';
 import 'package:my_app/router/router_handler.dart';
 
 var routers = <String, WidgetBuilder>{
@@ -49,6 +49,8 @@ class Routers {
   static String editName = '/editName';
   static String settings = '/settings';
 
+  static String lineAnimate = '/lineAnimate';
+
   static void configureRouters(Router router) {
     router.define(login, handler: loginHandler);
     router.define(register, handler: registerHandler);
@@ -66,5 +68,7 @@ class Routers {
     router.define(editHead, handler: setHeadInfo);
     router.define(editName, handler: setNameInfo);
     router.define(settings, handler: setPage);
+
+    router.define(lineAnimate, handler: lineAnimatePage);
   }
 }
