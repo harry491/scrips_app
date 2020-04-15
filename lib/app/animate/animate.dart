@@ -11,7 +11,8 @@ class Animate extends StatefulWidget {
 }
 
 class AnimateState extends State<Animate> {
-  List titles = ["线性动画"];
+
+  List titles = ["放大缩小" , "旋转"];
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,12 @@ class AnimateState extends State<Animate> {
             children: titles.map((value) {
               return GestureDetector(
                 onTap: () {
-                  NavigatorUtils.goLineAnimatePage(context);
+                  if (value == "放大缩小"){
+                    NavigatorUtils.goLineAnimatePage(context);
+                  }else{
+                    NavigatorUtils.goTransformAnimatePage(context);
+                  }
+
                 },
                 child: ListTile(
                   title: Text(value),

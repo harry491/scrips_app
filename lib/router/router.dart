@@ -50,6 +50,7 @@ class Routers {
   static String settings = '/settings';
 
   static String lineAnimate = '/lineAnimate';
+  static String transformAnimate = '/transformAnimate';
 
   static void configureRouters(Router router) {
     router.define(login, handler: loginHandler);
@@ -70,5 +71,6 @@ class Routers {
     router.define(settings, handler: setPage);
 
     router.define(lineAnimate, handler: lineAnimatePage);
+    router.define(transformAnimate, handler: transformAnimatePage);
   }
 }

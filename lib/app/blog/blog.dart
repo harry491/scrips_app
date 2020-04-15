@@ -330,8 +330,8 @@ class BlogItemState extends State<BlogItem> {
               children: scrip.images.map((image) {
                 return Container(
                   margin: EdgeInsets.only(right: 5),
-                  height: 120,
-                  width: 120,
+                  height: (MediaQuery.of(context).size.width - 60) / 3,
+                  width: (MediaQuery.of(context).size.width - 60) / 3,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(5)),
                     image: DecorationImage(

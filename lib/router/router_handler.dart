@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/app/animate/lineAnimate.dart';
+import 'package:my_app/app/animate/transformWidget.dart';
 import 'package:my_app/app/blog/blog.dart';
 import 'package:my_app/app/blog/blogDetail.dart';
 import 'package:my_app/app/blog/blogWeb.dart';
@@ -128,4 +129,10 @@ var setPage = new Handler(
 var lineAnimatePage = new Handler(
     handlerFunc: (BuildContext context, Map<String, List<Object>> params) {
       return LineAnimate();
+    });
+
+/// 旋转动画
+var transformAnimatePage = new Handler(
+    handlerFunc: (BuildContext context, Map<String, List<Object>> params) {
+      return TransformWidget();
     });

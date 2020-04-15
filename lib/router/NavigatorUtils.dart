@@ -107,4 +107,9 @@ class NavigatorUtils {
   static void goLineAnimatePage(BuildContext context) {
     _navigateTo(context, Routers.lineAnimate, clearStack: false);
   }
+
+  /// 旋转
+  static void goTransformAnimatePage(BuildContext context) {
+    _navigateTo(context, Routers.transformAnimate, clearStack: false);
+  }
 }
